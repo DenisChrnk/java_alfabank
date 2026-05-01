@@ -1,4 +1,4 @@
-package org.example.homework3;
+package homework3;
 
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
