@@ -9,17 +9,20 @@ public class Task {
         this.isDone = idDone;
     }
 
-    public void getTheTaskDone() {
+
+    public void setTaskDone() {
         isDone = true;
         System.out.println("Перевели задачу в Done");
     }
 
-    public void getTaskStatus() {
+    public boolean getTaskStatus() {
         System.out.println("Статус задачи: " + isDone);
+        return isDone;
     }
 
-    public void getTaskName() {
+    public String getTaskName() {
         System.out.println("Название задачи: " + taskName);
+        return taskName;
     }
 
     public void printTaskInfo() {
