@@ -2,12 +2,25 @@ package homework10;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TaskTracker {
     private List<Task> tasksList;
 
     public TaskTracker() {
         this.tasksList = new ArrayList<>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskTracker that = (TaskTracker) o;
+        return Objects.equals(tasksList, that.tasksList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(tasksList);
     }
 
     @Override
@@ -23,7 +36,9 @@ public class TaskTracker {
     }
 
     public void getAllTasks() {
-        System.out.println(tasksList);
+        for(Task task: tasksList){
+            System.out.println(task);
+        }
     }
 
     public void doTaskDone(String taskName) {
@@ -34,13 +49,14 @@ public class TaskTracker {
         }
     }
 
-    public boolean taskIsDone(String taskName) {
+    public void statusOfTask(String taskName) {
         boolean result = false;
         for (Task task : tasksList) {
             if (task.getTaskName().equalsIgnoreCase(taskName)) {
                 result = task.getTaskStatus();
             }
-        } return result;
+        }
+        System.out.println("Статус задачи: " + result);
     }
     public void getTasksStatistics(){
         int numberOfTasks = tasksList.size();

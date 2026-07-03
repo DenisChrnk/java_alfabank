@@ -1,5 +1,7 @@
 package homework10;
 
+import java.util.Objects;
+
 public class Task {
     private String taskName;
     private boolean isDone;
@@ -9,6 +11,25 @@ public class Task {
         this.isDone = idDone;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return isDone == task.isDone && Objects.equals(taskName, task.taskName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, isDone);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskName='" + taskName + '\'' +
+                ", isDone=" + isDone +
+                '}';
+    }
 
     public void setTaskDone() {
         isDone = true;
@@ -16,12 +37,10 @@ public class Task {
     }
 
     public boolean getTaskStatus() {
-        System.out.println("Статус задачи: " + isDone);
         return isDone;
     }
 
     public String getTaskName() {
-        System.out.println("Название задачи: " + taskName);
         return taskName;
     }
 
