@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class XMLUtilsTests {
+public class XMLUtilsTest {
     @Test
     public void positiveTest() {
         String result = XMLUtils.createEmptyElement("user");
