@@ -67,8 +67,12 @@ dependencies {
 }
 
 allure {
-    //version = "3.9.0"   // Allure 3 (default)
-    version = "2.42.1"  // Allure 2
+    version = "2.42.1"
+    report {
+        dependencies {
+            allureRawResultElements(files(layout.buildDirectory.dir("allure-results")))
+        }
+    }
 }
 
 test {
